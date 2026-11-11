@@ -1,0 +1,552 @@
+:root {
+  --bg: #fff7ec;
+  --bg-glow: #ffe2b8;
+  --card: #ffffff;
+  --text: #3b2416;
+  --muted: #8a6a55;
+  --sun: #ffb627;
+  --orange: #ff7a2f;
+  --coral: #f25c54;
+  --accent: #e8590c;
+  --border: #f5dcc2;
+  --error-bg: #fff0ec;
+  --error-border: #f6a594;
+  --radius: 20px;
+  --shadow: 0 6px 20px rgba(201, 104, 34, 0.12);
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 85% -10%, var(--bg-glow), transparent 55%), var(--bg);
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.45;
+  -webkit-text-size-adjust: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--accent);
+}
+
+code {
+  background: #fde8d2;
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 16px 32px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--orange), var(--coral));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tagline {
+  margin: 0;
+  color: var(--muted);
+}
+
+.logo {
+  flex: none;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.section-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 24px 0 10px;
+}
+
+/* Knappar */
+.btn {
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: none;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: transform 0.1s ease, filter 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--sun), var(--orange));
+  color: #3b1a05;
+}
+
+.btn-primary:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 2px;
+}
+
+/* Sök */
+.search {
+  position: relative;
+}
+
+.search-form {
+  display: flex;
+  gap: 8px;
+}
+
+.search-form input {
+  flex: 1;
+  min-width: 0;
+  min-height: 52px;
+  padding: 0 18px;
+  font: inherit;
+  font-size: 1.05rem;
+  color: var(--text);
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 999px;
+}
+
+.search-form input:focus {
+  border-color: var(--orange);
+  outline: none;
+}
+
+.search-form .btn {
+  min-height: 52px;
+}
+
+.search-results {
+  margin-top: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 6px;
+}
+
+.search-results p {
+  margin: 12px;
+}
+
+.search-results ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.result-btn {
+  width: 100%;
+  min-height: 56px;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  border-radius: 14px;
+  padding: 8px 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.result-btn:hover {
+  background: #fff1e0;
+}
+
+.result-name {
+  font-weight: 800;
+}
+
+/* Favoriter */
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: flex;
+  align-items: stretch;
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.chip-active {
+  border-color: var(--orange);
+  background: #fff1e0;
+}
+
+.chip button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.chip-main {
+  padding: 0 6px 0 16px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chip-remove {
+  min-width: 44px;
+  font-size: 1.3rem;
+  color: var(--muted);
+}
+
+.chip-remove:hover {
+  color: var(--coral);
+}
+
+/* Meddelanden */
+.notice {
+  margin-top: 20px;
+}
+
+.notice h2 {
+  margin: 0 0 6px;
+  font-size: 1.2rem;
+}
+
+.notice p {
+  margin: 0 0 8px;
+}
+
+.notice ol {
+  margin: 8px 0 0;
+  padding-left: 1.3em;
+}
+
+.notice li {
+  margin-bottom: 6px;
+}
+
+.notice-error {
+  background: var(--error-bg);
+  border-color: var(--error-border);
+}
+
+.notice-error h2 {
+  color: #b33a1f;
+}
+
+.empty {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.empty p {
+  margin: 4px 0;
+}
+
+.empty-sun {
+  font-size: 3rem;
+}
+
+.loading {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 24px;
+}
+
+/* Väder */
+.weather {
+  margin-top: 20px;
+  transition: opacity 0.2s ease;
+}
+
+.weather.is-loading {
+  opacity: 0.55;
+}
+
+.current {
+  background: linear-gradient(145deg, #ffd166 0%, #ff9f43 55%, #f76b4f 100%);
+  border: none;
+  color: #3b1a05;
+}
+
+.current .muted {
+  color: #6b3412;
+}
+
+.current-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.current-place {
+  min-width: 0;
+}
+
+.current-place h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  overflow-wrap: anywhere;
+}
+
+.current-place p {
+  margin: 2px 0 0;
+}
+
+.btn-fav {
+  flex: none;
+  background: rgba(255, 255, 255, 0.55);
+  color: #3b1a05;
+}
+
+.btn-fav span {
+  font-size: 1.2rem;
+}
+
+.btn-fav.is-fav {
+  background: #fff;
+  color: var(--accent);
+}
+
+.current-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.current-icon {
+  flex: none;
+  filter: drop-shadow(0 4px 8px rgba(120, 50, 0, 0.25));
+}
+
+.current-temp {
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.current-desc {
+  margin: 4px 0 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+.stats div {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 14px;
+  padding: 10px;
+  text-align: center;
+}
+
+.stats dt {
+  font-size: 0.8rem;
+  color: #6b3412;
+}
+
+.stats dd {
+  margin: 2px 0 0;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.forecast {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.day {
+  text-align: center;
+  padding: 14px 10px;
+}
+
+.day p {
+  margin: 0;
+}
+
+.day-name {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.day-date {
+  font-size: 0.9rem;
+}
+
+.day-temps {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.15rem;
+}
+
+.day-temps .max {
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.day-temps .min {
+  color: var(--muted);
+}
+
+.day-pop {
+  font-size: 0.9rem;
+  margin-top: 4px !important;
+}
+
+.footer {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Mobil: prognosen som lista */
+@media (max-width: 540px) {
+  .forecast {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .day {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas:
+      'name icon temps'
+      'date icon temps';
+    align-items: center;
+    text-align: left;
+    padding: 8px 16px;
+    column-gap: 8px;
+  }
+
+  .day-name {
+    grid-area: name;
+  }
+
+  .day-date {
+    grid-area: date;
+  }
+
+  .day img {
+    grid-area: icon;
+    width: 52px;
+    height: 52px;
+  }
+
+  .day-temps {
+    grid-area: temps;
+  }
+
+  .day-pop {
+    display: none;
+  }
+
+  .current-temp {
+    font-size: 3.2rem;
+  }
+
+  .current-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .stats dd {
+    font-size: 1rem;
+  }
+}
